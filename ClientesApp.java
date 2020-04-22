@@ -1,4 +1,8 @@
+import java.util.List;
 class ClientesApp{
+	
+	static ClienteServiceImp clienteService = new ClienteServiceImp();
+	static List<Cliente> clientes;
 
 	public static void main (String[] args){
 
@@ -10,7 +14,11 @@ class ClientesApp{
 	}
 
 	static void cargarClientes(){
+		clientes = clienteService.buscarTodo();
 
+		for(Cliente c : clientes){
+			System.out.println("Nro: "+c.getNumero() + " | Cliente: " + c);
+			System.out.println("--------------------------------------------");
+		}
 	}
-
 }
